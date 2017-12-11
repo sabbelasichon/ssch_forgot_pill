@@ -1,0 +1,13 @@
+mod.wizards.newContentElement.wizardItems.plugins {
+    elements {
+        ssch_forgot_pill {
+            icon = EXT:ssch_forgot_pill/Resources/Public/Icons/ce_wiz.png
+            title = LLL:EXT:ssch_forgot_pill/Resources/Private/Language/locallang_be.xlf:pi1_title
+            description = LLL:EXT:ssch_forgot_pill/Resources/Private/Language/locallang_be.xlf:pi1_plus_wiz_description
+            tt_content_defValues {
+                CType = list
+                list_type = sschforgotpill_pi1
+            }
+        }
+    }
+}

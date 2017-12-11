@@ -15,10 +15,12 @@ namespace Ssch\SschForgotPill\Domain\Model;
  * The TYPO3 project - inspiring people to share!
  */
 
+use Ssch\SschForgotPill\Enumeration\HowManyTimesEnumeration;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 
 class ForgotPill extends AbstractEntity
 {
+
     /**
      * Wie oft haben Sie die Pille vergessen?
      *
@@ -191,7 +193,7 @@ class ForgotPill extends AbstractEntity
      */
     public function getIsProtectedByTimes()
     {
-        if ($this->getHowManyTimes() > 1) {
+        if ($this->getHowManyTimes() > HowManyTimesEnumeration::ONCE) {
             return false;
         }
 

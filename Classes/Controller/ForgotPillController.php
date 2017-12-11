@@ -18,6 +18,7 @@ namespace Ssch\SschForgotPill\Controller;
 
 use Ssch\SschForgotPill\Domain\Model\ForgotPill;
 use Ssch\SschForgotPill\Domain\Repository\ForgotPillRepository;
+use Ssch\SschForgotPill\Enumeration\WeekEnumeration;
 
 class ForgotPillController extends AbstractMultistepForgotPillController
 {
@@ -150,14 +151,14 @@ class ForgotPillController extends AbstractMultistepForgotPillController
             $this->redirectToFirstActionMethod();
         }
 
-        switch ((integer)$newForgotPill->getWhichWeek()) {
-            case 1:
+        switch ($newForgotPill->getWhichWeek()) {
+            case WeekEnumeration::FIRST_WEEK:
                 $this->redirect('step4ForOneWeek');
                 break;
-            case 2:
+            case WeekEnumeration::SECOND_WEEK:
                 $this->redirect('step4ForTwoWeeks');
                 break;
-            case 3:
+            case WeekEnumeration::THIRD_WEEK:
                 $this->redirect('step4ForThreeWeeks');
                 break;
             default:
@@ -319,11 +320,11 @@ class ForgotPillController extends AbstractMultistepForgotPillController
 
         try {
             $redirectAction = '';
-            if ($newForgotPill->getWhichWeek() === 1) {
+            if ($newForgotPill->getWhichWeek() === WeekEnumeration::FIRST_WEEK) {
                 $redirectAction = $newForgotPill->getDidYouHaveSex() ? 'resultNoProtectionForOneWeek' : 'resultForOneWeekWithoutSex';
-            } elseif ($newForgotPill->getWhichWeek() === 2) {
+            } elseif ($newForgotPill->getWhichWeek() === WeekEnumeration::SECOND_WEEK) {
                 $redirectAction = $newForgotPill->getDidYouTakeThePillCorrectlyInPreviousWeeks() ? 'resultForTwoWeeks' : 'resultNoProtection';
-            } elseif ($newForgotPill->getWhichWeek() === 3) {
+            } elseif ($newForgotPill->getWhichWeek() === WeekEnumeration::THIRD_WEEK) {
                 $redirectAction = $newForgotPill->getDidYouTakeThePillCorrectlyInPreviousWeeks() ? 'resultForThreeWeeks' : 'resultNoProtection';
             }
             $this->redirect($redirectAction);

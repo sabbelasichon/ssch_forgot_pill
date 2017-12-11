@@ -16,6 +16,8 @@ namespace Ssch\SschForgotPill\Domain\Validator;
  */
 
 use Ssch\SschForgotPill\Domain\Model\ForgotPill;
+use Ssch\SschForgotPill\Enumeration\WhenDidYouForgetToTakePillEnumeration;
+use TYPO3\CMS\Core\Type\Exception\InvalidEnumerationValueException;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 class Step2ControllerValidator extends AbstractStepsControllerValidator
@@ -27,8 +29,11 @@ class Step2ControllerValidator extends AbstractStepsControllerValidator
     {
         parent::isValid($newForgotPill);
 
-        if (!GeneralUtility::inList('1,2', $newForgotPill->getWhenDidYouForgotToTakeThePill())) {
+        try {
+            WhenDidYouForgetToTakePillEnumeration::cast($newForgotPill->getWhenDidYouForgotToTakeThePill());
+        } catch (InvalidEnumerationValueException $e) {
             $this->addChooseOptionError();
         }
+
     }
 }

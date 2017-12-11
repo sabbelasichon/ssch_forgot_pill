@@ -16,6 +16,7 @@ namespace Ssch\SschForgotPill\Domain\Validator;
  */
 
 use Ssch\SschForgotPill\Domain\Model\ForgotPill;
+use Ssch\SschForgotPill\Enumeration\WeekEnumeration;
 
 class Step4ControllerValidator extends AbstractStepsControllerValidator
 {
@@ -30,13 +31,13 @@ class Step4ControllerValidator extends AbstractStepsControllerValidator
         $whichWeek = (integer)$newForgotPill->getWhichWeek();
 
         switch ($whichWeek) {
-            case 1:
+            case WeekEnumeration::FIRST_WEEK:
                 if (null === $newForgotPill->getDidYouHaveSex()) {
                     $this->addChooseOptionError();
                 }
                 break;
-            case 2:
-            case 3:
+            case WeekEnumeration::SECOND_WEEK:
+            case WeekEnumeration::THIRD_WEEK:
                 if (null === $newForgotPill->getDidYouTakeThePillCorrectlyInPreviousWeeks()) {
                     $this->addChooseOptionError();
                 }

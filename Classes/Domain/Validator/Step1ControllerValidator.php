@@ -16,7 +16,9 @@ namespace Ssch\SschForgotPill\Domain\Validator;
  */
 
 use Ssch\SschForgotPill\Domain\Model\ForgotPill;
+use Ssch\SschForgotPill\Enumeration\HowManyTimesEnumeration;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Core\Type\Exception\InvalidEnumerationValueException;
 
 class Step1ControllerValidator extends AbstractStepsControllerValidator
 {
@@ -27,7 +29,9 @@ class Step1ControllerValidator extends AbstractStepsControllerValidator
     {
         parent::isValid($newForgotPill);
 
-        if (!GeneralUtility::inList('1,2', $newForgotPill->getHowManyTimes())) {
+        try {
+            HowManyTimesEnumeration::cast($newForgotPill->getHowManyTimes());
+        } catch (InvalidEnumerationValueException $e) {
             $this->addChooseOptionError();
         }
 

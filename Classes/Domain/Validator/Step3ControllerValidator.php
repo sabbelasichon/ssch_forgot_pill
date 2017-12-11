@@ -16,7 +16,8 @@ namespace Ssch\SschForgotPill\Domain\Validator;
  */
 
 use Ssch\SschForgotPill\Domain\Model\ForgotPill;
-use TYPO3\CMS\Core\Utility\GeneralUtility;
+use Ssch\SschForgotPill\Enumeration\WeekEnumeration;
+use TYPO3\CMS\Core\Type\Exception\InvalidEnumerationValueException;
 
 class Step3ControllerValidator extends AbstractStepsControllerValidator
 {
@@ -28,7 +29,9 @@ class Step3ControllerValidator extends AbstractStepsControllerValidator
 
         parent::isValid($newForgotPill);
 
-        if ( ! GeneralUtility::inList('1,2,3', $newForgotPill->getWhichWeek())) {
+        try {
+           WeekEnumeration::cast($newForgotPill->getWhichWeek());
+        } catch (InvalidEnumerationValueException $e) {
             $this->addChooseOptionError();
         }
     }
