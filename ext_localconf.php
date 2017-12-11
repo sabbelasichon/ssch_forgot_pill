@@ -10,9 +10,9 @@ if ( ! defined('TYPO3_MODE')) {
 
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
     'Ssch.ssch_forgot_pill', 'Pi1', [
-    'ForgotPill' => 'index,intro,step1,step2,step3,step4,result,step4ForOneWeek,step4ForTwoWeeks,step4ForThreeWeeks,resultNoProtection,resultProtection,resultForOneWeekWithoutSex,resultForTwoWeeks,resultForThreeWeeks,resultNoProtectionForOneWeek',
+    'ForgotPill' => 'index,intro,step1,step2,step3,step4,result',
 ], [
-        'ForgotPill' => 'index,intro,step1,step2,step3,step4,result,step4ForOneWeek,step4ForTwoWeeks,step4ForThreeWeeks,resultNoProtection,resultProtection,resultForOneWeekWithoutSex,resultForTwoWeeks,resultForThreeWeeks,resultNoProtectionForOneWeek',
+        'ForgotPill' => 'index,intro,step1,step2,step3,step4,result',
     ]
 );
 

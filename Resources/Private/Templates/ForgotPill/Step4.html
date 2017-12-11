@@ -1,0 +1,12 @@
+<f:layout name="Default"/>
+<f:section name="tabs">
+  <f:render partial="ForgotPill/Tabs" arguments="{active: 4}"/>
+</f:section>
+<f:section name="main">
+  <f:render partial="ForgotPill/Step4/{partialName}" arguments="{_all}"/>
+</f:section>
+<f:section name="backbutton">
+  <f:form method="post" action="step3">
+    <f:render partial="ForgotPill/BackButtonForm"/>
+  </f:form>
+</f:section>

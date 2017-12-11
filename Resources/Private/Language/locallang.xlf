@@ -80,29 +80,31 @@
                 </source>
             </trans-unit>
             <trans-unit id="tx_sschforgotpill_domain_model_forgotpill.result.2weeks">
-                <source>
-                    <![CDATA[Sie haben in der 2. Einnahmewoche eine Pille vergessen, in der<br />1. Woche aber alle Pillen regelmäßig eingenommen.<br />Ein zusätzliches Verhütungsmittel ist nicht notwendig.]]></source>
+                <source>Sie haben in der 2. Einnahmewoche eine Pille vergessen, in der 1. Woche
+aber alle Pillen regelmäßig eingenommen.
+Ein zusätzliches Verhütungsmittel ist nicht notwendig.
+                </source>
             </trans-unit>
             <trans-unit id="tx_sschforgotpill_domain_model_forgotpill.result.2weeks.page_title">
-                <source>Ergebnis für: Sie haben in der 2. Einnahmewoche eine Pille vergessen, in der 1. Woche aber alle
-                    Pillen regelmäßig eingenommen.
+                <source>Ergebnis für: Sie haben in der 2. Einnahmewoche eine Pille vergessen, in der 1. Woche aber alle Pillen regelmäßig eingenommen.
                 </source>
             </trans-unit>
             <trans-unit id="tx_sschforgotpill_domain_model_forgotpill.result.3weeks">
                 <source>
-                    <![CDATA[Sie haben in der 3. Einnahmewoche eine Pille vergessen, davor aber alle Pillen regelmäßig eingenommen.<br />Ein zusätzliches Verhütungsmittel ist nicht notwendig.]]></source>
+                    Sie haben in der 3. Einnahmewoche eine Pille vergessen, davor aber alle Pillen regelmäßig eingenommen.
+Ein zusätzliches Verhütungsmittel ist nicht notwendig.
+                </source>
             </trans-unit>
             <trans-unit id="tx_sschforgotpill_domain_model_forgotpill.result.3weeks.page_title">
-                <source>Ergebnis für: Sie haben in der 3. Einnahmewoche eine Pille vergessen, davor aber alle Pillen
-                    regelmäßig eingenommen.
+                <source>Ergebnis für: Sie haben in der 3. Einnahmewoche eine Pille vergessen, davor aber alle Pillen regelmäßig eingenommen.
                 </source>
             </trans-unit>
             <trans-unit id="tx_sschforgotpill_domain_model_forgotpill.result.begin_with_next_package">
                 <source>Nach Ende der Einnahmepause beginnen Sie mit der nächsten Packung.</source>
             </trans-unit>
             <trans-unit id="tx_sschforgotpill_domain_model_forgotpill.result.first_week.text_01" xml:space="preserve">
-			<source>Sie haben die Pille in der 1.  Einnahmewoche vergessen und hatten in der Woche vorher Geschlechtsverkehr.</source>
-		</trans-unit>
+                <source>Sie haben die Pille in der 1.  Einnahmewoche vergessen und hatten in der Woche vorher Geschlechtsverkehr.</source>
+            </trans-unit>
             <trans-unit id="tx_sschforgotpill_domain_model_forgotpill.result.forgotten_pill_more_than_once">
                 <source>Sie haben die Pille mehr als einmal vergessen.</source>
             </trans-unit>

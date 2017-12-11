@@ -39,22 +39,6 @@ class ForgotPillController extends AbstractMultistepForgotPillController
     }
 
     /**
-     * @throws \TYPO3\CMS\Extbase\Mvc\Exception\UnsupportedRequestTypeException
-     * @throws \TYPO3\CMS\Extbase\Mvc\Exception\StopActionException
-     */
-    public function initializeAction()
-    {
-        // Get all the request arguments
-        $requestArguments = $this->request->getArguments();
-        if (isset($requestArguments['back'], $requestArguments['backaction'])) {
-            $this->redirect($requestArguments['backaction']);
-        }
-
-
-        parent::initializeAction();
-    }
-
-    /**
      * Index action.
      * @throws \TYPO3\CMS\Extbase\Mvc\Exception\StopActionException
      */
@@ -110,8 +94,8 @@ class ForgotPillController extends AbstractMultistepForgotPillController
             $this->redirectToFirstActionMethod();
         }
 
-        if (!$newForgotPill->getIsProtectedByTimes()) {
-            $this->redirect('resultNoProtection');
+        if ( ! $newForgotPill->getIsProtectedByTimes()) {
+            $this->redirect('result');
         }
 
         $this->view->assign('newForgotPill', $newForgotPill);
@@ -132,7 +116,7 @@ class ForgotPillController extends AbstractMultistepForgotPillController
         }
 
         if ($newForgotPill->getIsProtected()) {
-            $this->redirect('resultProtection');
+            $this->redirect('result');
         }
 
         $this->view->assign('newForgotPill', $newForgotPill);
@@ -151,158 +135,23 @@ class ForgotPillController extends AbstractMultistepForgotPillController
             $this->redirectToFirstActionMethod();
         }
 
+        $partialName = '';
         switch ($newForgotPill->getWhichWeek()) {
             case WeekEnumeration::FIRST_WEEK:
-                $this->redirect('step4ForOneWeek');
+                $partialName = 'Step4ForOneWeek';
                 break;
             case WeekEnumeration::SECOND_WEEK:
-                $this->redirect('step4ForTwoWeeks');
+                $partialName = 'Step4ForTwoWeeks';
                 break;
             case WeekEnumeration::THIRD_WEEK:
-                $this->redirect('step4ForThreeWeeks');
+                $partialName = 'Step4ForThreeWeeks';
                 break;
             default:
                 $this->redirectToFirstActionMethod();
                 break;
         }
-        $this->view->assign('newForgotPill', $newForgotPill);
+        $this->view->assignMultiple(['newForgotPill', $newForgotPill, 'partialName' => $partialName]);
 
-    }
-
-    /**
-     * @param ForgotPill $newForgotPill
-     *
-     * @throws \TYPO3\CMS\Extbase\Mvc\Exception\UnsupportedRequestTypeException
-     * @throws \TYPO3\CMS\Extbase\Mvc\Exception\StopActionException
-     */
-    public function step4ForOneWeekAction(ForgotPill $newForgotPill = null)
-    {
-        if (null === $newForgotPill) {
-            $this->redirectToFirstActionMethod();
-        }
-
-        $this->view->assign('newForgotPill', $newForgotPill);
-
-    }
-
-    /**
-     * @param ForgotPill $newForgotPill
-     *
-     * @throws \TYPO3\CMS\Extbase\Mvc\Exception\UnsupportedRequestTypeException
-     * @throws \TYPO3\CMS\Extbase\Mvc\Exception\StopActionException
-     */
-    public function step4ForTwoWeeksAction(ForgotPill $newForgotPill = null)
-    {
-        if (null === $newForgotPill) {
-            $this->redirectToFirstActionMethod();
-        }
-        $this->view->assign('newForgotPill', $newForgotPill);
-    }
-
-    /**
-     * @param ForgotPill $newForgotPill
-     *
-     * @throws \TYPO3\CMS\Extbase\Mvc\Exception\UnsupportedRequestTypeException
-     * @throws \TYPO3\CMS\Extbase\Mvc\Exception\StopActionException
-     */
-    public function step4ForThreeWeeksAction(ForgotPill $newForgotPill = null)
-    {
-        if (null === $newForgotPill) {
-            $this->redirectToFirstActionMethod();
-        }
-        $this->view->assign('newForgotPill', $newForgotPill);
-    }
-
-    /**
-     * @param ForgotPill $newForgotPill
-     *
-     * @throws \TYPO3\CMS\Extbase\Mvc\Exception\UnsupportedRequestTypeException
-     * @throws \TYPO3\CMS\Extbase\Mvc\Exception\StopActionException
-     * @throws \TYPO3\CMS\Extbase\Persistence\Exception\IllegalObjectTypeException
-     */
-    public function resultNoProtectionAction(ForgotPill $newForgotPill = null)
-    {
-        if (null === $newForgotPill) {
-            $this->redirectToFirstActionMethod();
-        }
-
-        $this->postProcessingAction($newForgotPill);
-    }
-
-    /**
-     * @param ForgotPill $newForgotPill
-     *
-     * @throws \TYPO3\CMS\Extbase\Mvc\Exception\UnsupportedRequestTypeException
-     * @throws \TYPO3\CMS\Extbase\Mvc\Exception\StopActionException
-     * @throws \TYPO3\CMS\Extbase\Persistence\Exception\IllegalObjectTypeException
-     */
-    public function resultProtectionAction(ForgotPill $newForgotPill = null)
-    {
-        if (null === $newForgotPill) {
-            $this->redirectToFirstActionMethod();
-        }
-        $this->postProcessingAction($newForgotPill);
-    }
-
-    /**
-     * @param ForgotPill $newForgotPill
-     *
-     * @throws \TYPO3\CMS\Extbase\Mvc\Exception\UnsupportedRequestTypeException
-     * @throws \TYPO3\CMS\Extbase\Mvc\Exception\StopActionException
-     * @throws \TYPO3\CMS\Extbase\Persistence\Exception\IllegalObjectTypeException
-     */
-    public function resultForOneWeekWithoutSexAction(ForgotPill $newForgotPill = null)
-    {
-        if (null === $newForgotPill) {
-            $this->redirectToFirstActionMethod();
-        }
-        $this->postProcessingAction($newForgotPill);
-    }
-
-    /**
-     * @param ForgotPill $newForgotPill
-     *
-     * @throws \TYPO3\CMS\Extbase\Mvc\Exception\UnsupportedRequestTypeException
-     * @throws \TYPO3\CMS\Extbase\Mvc\Exception\StopActionException
-     * @throws \TYPO3\CMS\Extbase\Persistence\Exception\IllegalObjectTypeException
-     */
-    public function resultNoProtectionForOneWeekAction(ForgotPill $newForgotPill = null)
-    {
-        if (null === $newForgotPill) {
-            $this->redirectToFirstActionMethod();
-        }
-        $this->postProcessingAction($newForgotPill);
-    }
-
-    /**
-     * @param ForgotPill $newForgotPill
-     *
-     * @throws \TYPO3\CMS\Extbase\Mvc\Exception\UnsupportedRequestTypeException
-     * @throws \TYPO3\CMS\Extbase\Mvc\Exception\StopActionException
-     * @throws \TYPO3\CMS\Extbase\Persistence\Exception\IllegalObjectTypeException
-     */
-    public function resultForTwoWeeksAction(ForgotPill $newForgotPill = null)
-    {
-        if (null === $newForgotPill) {
-            $this->redirectToFirstActionMethod();
-        }
-        $this->postProcessingAction($newForgotPill);
-    }
-
-    /**
-     * @param ForgotPill $newForgotPill
-     *
-     * @throws \TYPO3\CMS\Extbase\Mvc\Exception\UnsupportedRequestTypeException
-     * @throws \TYPO3\CMS\Extbase\Mvc\Exception\StopActionException
-     * @throws \TYPO3\CMS\Extbase\Persistence\Exception\IllegalObjectTypeException
-     */
-    public function resultForThreeWeeksAction(ForgotPill $newForgotPill = null)
-    {
-        if (null === $newForgotPill) {
-            $this->redirectToFirstActionMethod();
-        }
-
-        $this->postProcessingAction($newForgotPill);
     }
 
     /**
@@ -319,15 +168,21 @@ class ForgotPillController extends AbstractMultistepForgotPillController
         }
 
         try {
-            $redirectAction = '';
-            if ($newForgotPill->getWhichWeek() === WeekEnumeration::FIRST_WEEK) {
-                $redirectAction = $newForgotPill->getDidYouHaveSex() ? 'resultNoProtectionForOneWeek' : 'resultForOneWeekWithoutSex';
+            $partialName = '';
+            if ( ! $newForgotPill->getIsProtectedByTimes()) {
+                $partialName = 'ResultNoProtection';
+            } elseif ($newForgotPill->getIsProtected()) {
+                $partialName = 'ResultProtection';
+            } elseif ($newForgotPill->getWhichWeek() === WeekEnumeration::FIRST_WEEK) {
+                $partialName = $newForgotPill->getDidYouHaveSex() ? 'ResultNoProtectionForOneWeek' : 'ResultForOneWeekWithoutSex';
             } elseif ($newForgotPill->getWhichWeek() === WeekEnumeration::SECOND_WEEK) {
-                $redirectAction = $newForgotPill->getDidYouTakeThePillCorrectlyInPreviousWeeks() ? 'resultForTwoWeeks' : 'resultNoProtection';
+                $partialName = $newForgotPill->getDidYouTakeThePillCorrectlyInPreviousWeeks() ? 'ResultForTwoWeeks' : 'ResultNoProtection';
             } elseif ($newForgotPill->getWhichWeek() === WeekEnumeration::THIRD_WEEK) {
-                $redirectAction = $newForgotPill->getDidYouTakeThePillCorrectlyInPreviousWeeks() ? 'resultForThreeWeeks' : 'resultNoProtection';
+                $partialName = $newForgotPill->getDidYouTakeThePillCorrectlyInPreviousWeeks() ? 'ResultForThreeWeeks' : 'ResultNoProtection';
             }
-            $this->redirect($redirectAction);
+
+            $this->view->assignMultiple(['newForgotPill' => $newForgotPill, 'partialName' => $partialName]);
+            $this->postProcessingAction($newForgotPill);
         } catch (\Exception $e) {
             $this->redirectToFirstActionMethod();
         }

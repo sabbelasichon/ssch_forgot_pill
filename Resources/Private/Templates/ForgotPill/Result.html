@@ -1,8 +1,10 @@
-<f:layout name="Default" />
+<f:layout name="Default"/>
 <f:section name="tabs">
-    <f:render partial="ForgotPill/Tabs" arguments="{active: 5}" />
+  <f:render partial="ForgotPill/Tabs" arguments="{active: 5}"/>
 </f:section>
-<f:section name="main" />
+<f:section name="main">
+  <f:render partial="ForgotPill/Result/{partialName}" arguments="{_all}"/>
+</f:section>
 <f:section name="backbutton">
-    <f:render partial="ForgotPill/BackButton" />
+  <f:render partial="ForgotPill/BackButton"/>
 </f:section>

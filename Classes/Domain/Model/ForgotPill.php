@@ -16,6 +16,7 @@ namespace Ssch\SschForgotPill\Domain\Model;
  */
 
 use Ssch\SschForgotPill\Enumeration\HowManyTimesEnumeration;
+use Ssch\SschForgotPill\Enumeration\WhenDidYouForgetToTakePillEnumeration;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 
 class ForgotPill extends AbstractEntity
@@ -181,7 +182,7 @@ class ForgotPill extends AbstractEntity
      */
     public function getIsProtected()
     {
-        if ($this->getWhenDidYouForgotToTakeThePill() === 1) {
+        if ($this->getWhenDidYouForgotToTakeThePill() === WhenDidYouForgetToTakePillEnumeration::LESS_THAN_TWELVE_HOURS_AGO) {
             return true;
         }
 

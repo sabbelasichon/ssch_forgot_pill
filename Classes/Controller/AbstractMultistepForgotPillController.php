@@ -16,6 +16,7 @@ namespace Ssch\SschForgotPill\Controller;
  */
 
 use Ssch\SschForgotPill\Session\SessionStorageInterface;
+use Ssch\SschForgotPill\Utility\ArrayUtility;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 use TYPO3\CMS\Extbase\Property\TypeConverter\PersistentObjectConverter;
 
@@ -87,7 +88,7 @@ abstract class AbstractMultistepForgotPillController extends ActionController
             $requestArguments = $this->request->getArguments();
 
             // Prepare and merge arguments to store in form data
-            $this->formData = array_replace_recursive($this->formData, $this->getFormDataFromRequest($requestArguments));
+            $this->formData = ArrayUtility::arrayMergeRecursiveOverrule($this->formData, $this->getFormDataFromRequest($requestArguments));
 
             // Now assign the form Data array to the requestArguments array
             $requestArguments[$this->formDataKey] = $this->formData;
@@ -96,8 +97,8 @@ abstract class AbstractMultistepForgotPillController extends ActionController
             // Store data in session
             $this->storeSessionData();
 
-            if ($this->arguments->hasArgument('newForgotPill')) {
-                $propertyMappingConfiguration = $this->arguments->getArgument('newForgotPill')->getPropertyMappingConfiguration();
+            if ($this->arguments->hasArgument($this->formDataKey)) {
+                $propertyMappingConfiguration = $this->arguments->getArgument($this->formDataKey)->getPropertyMappingConfiguration();
                 $propertyMappingConfiguration->allowAllProperties();
                 $propertyMappingConfiguration->setTypeConverterOption(PersistentObjectConverter::class, PersistentObjectConverter::CONFIGURATION_CREATION_ALLOWED, true);
             }
