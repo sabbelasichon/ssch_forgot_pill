@@ -29,3 +29,19 @@ if (\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('realurl')) {
     $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/realurl/class.tx_realurl_autoconfgen.php']['extensionConfiguration']['ssch_forgot_pill'] =
         \Ssch\SschForgotPill\Hooks\RealUrlAutoConfiguration::class.'->addConfig';
 }
+
+call_user_func(function () {
+
+    if (TYPO3_MODE === 'BE') {
+        if (class_exists(\TYPO3\CMS\Core\Imaging\IconRegistry::class)) {
+            /** @var \TYPO3\CMS\Core\Imaging\IconRegistry $iconRegistry */
+            $iconRegistry = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Imaging\IconRegistry::class);
+            $iconRegistry->registerIcon(
+                'ssch-forgot-pill-wizard',
+                \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
+                ['source' => 'EXT:ssch_forgot_pill/Resources/Public/Icons/question.svg']
+            );
+        }
+    }
+
+});
