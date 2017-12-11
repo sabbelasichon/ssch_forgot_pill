@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+    <file source-language="en" datatype="plaintext" original="messages" date="2017-12-11T16:52:35Z">
+        <header>
+            <type>database</type>
+            <description>Language labels for database tables/fields belonging to extension 'ssch_forgot_pill'
+            </description>
+            <generator>LFEditor</generator>
+        </header>
+        <body>
+            <trans-unit id="tx_sschforgotpill_domain_model_forgotpill">
+                <source>Pille vergessen?</source>
+            </trans-unit>
+            <trans-unit id="tx_sschforgotpill_domain_model_forgotpill.did_you_have_sex">
+                <source>Hatten Sie in der Woche Geschlechtsverkehr?</source>
+            </trans-unit>
+            <trans-unit
+                id="tx_sschforgotpill_domain_model_forgotpill.did_you_take_the_pill_correctly_in_previous_weeks">
+                <source>Haben Sie die Pille in den vorherige Woche korrekt eingenommen?</source>
+            </trans-unit>
+            <trans-unit id="tx_sschforgotpill_domain_model_forgotpill.forgot_more_than_one_pill">
+                <source>Ich habe mehr als eine Tablette vergessen.</source>
+            </trans-unit>
+            <trans-unit id="tx_sschforgotpill_domain_model_forgotpill.forgot_one_pill">
+                <source>Ich habe eine Tablette vergessen.</source>
+            </trans-unit>
+            <trans-unit id="tx_sschforgotpill_domain_model_forgotpill.how_many_times">
+                <source>Wie oft haben Sie die Pille vergessen?</source>
+            </trans-unit>
+            <trans-unit id="tx_sschforgotpill_domain_model_forgotpill.please_choose">
+                <source>Bitte wählen Sie</source>
+            </trans-unit>
+            <trans-unit id="tx_sschforgotpill_domain_model_forgotpill.when_did_you_forgot_the_pill.less_than_12_hours">
+                <source>Vor weniger als 12 Stunden.</source>
+            </trans-unit>
+            <trans-unit id="tx_sschforgotpill_domain_model_forgotpill.when_did_you_forgot_the_pill.more_than_12_hours">
+                <source>Vor mehr als 12 Stunden.</source>
+            </trans-unit>
+            <trans-unit id="tx_sschforgotpill_domain_model_forgotpill.when_did_you_forgot_to_take_the_pill">
+                <source>Wann haben Sie die Pille vergessen?</source>
+            </trans-unit>
+            <trans-unit id="tx_sschforgotpill_domain_model_forgotpill.which_week">
+                <source>In welcher Woche haben Sie die Pille vergessen?</source>
+            </trans-unit>
+            <trans-unit id="tx_sschforgotpill_domain_model_forgotpill.which_week_01">
+                <source>In Woche 1</source>
+            </trans-unit>
+            <trans-unit id="tx_sschforgotpill_domain_model_forgotpill.which_week_02">
+                <source>In Woche 2</source>
+            </trans-unit>
+            <trans-unit id="tx_sschforgotpill_domain_model_forgotpill.which_week_03">
+                <source>In Woche 3</source>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

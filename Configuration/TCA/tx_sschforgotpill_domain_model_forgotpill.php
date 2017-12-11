@@ -6,7 +6,7 @@ if (!defined('TYPO3_MODE')) {
 
 return [
     'ctrl' => [
-        'title' => 'LLL:EXT:ssch_forgot_pill/Resources/Private/Language/locallang_db.xml:tx_sschforgotpill_domain_model_forgotpill',
+        'title' => 'LLL:EXT:ssch_forgot_pill/Resources/Private/Language/locallang_db.xlf:tx_sschforgotpill_domain_model_forgotpill',
         'label' => 'how_many_times',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
@@ -118,14 +118,14 @@ return [
         ],
         'how_many_times' => [
             'exclude' => 1,
-            'label' => 'LLL:EXT:ssch_forgot_pill/Resources/Private/Language/locallang_db.xml:tx_sschforgotpill_domain_model_forgotpill.how_many_times',
+            'label' => 'LLL:EXT:ssch_forgot_pill/Resources/Private/Language/locallang_db.xlf:tx_sschforgotpill_domain_model_forgotpill.how_many_times',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
                 'items' => [
-                    ['LLL:EXT:ssch_forgot_pill/Resources/Private/Language/locallang_db.xml:tx_sschforgotpill_domain_model_forgotpill.please_choose', 0],
-                    ['LLL:EXT:ssch_forgot_pill/Resources/Private/Language/locallang_db.xml:tx_sschforgotpill_domain_model_forgotpill.forgot_one_pill', 1],
-                    ['LLL:EXT:ssch_forgot_pill/Resources/Private/Language/locallang_db.xml:tx_sschforgotpill_domain_model_forgotpill.forgot_more_than_one_pill', 2],
+                    ['LLL:EXT:ssch_forgot_pill/Resources/Private/Language/locallang_db.xlf:tx_sschforgotpill_domain_model_forgotpill.please_choose', 0],
+                    ['LLL:EXT:ssch_forgot_pill/Resources/Private/Language/locallang_db.xlf:tx_sschforgotpill_domain_model_forgotpill.forgot_one_pill', 1],
+                    ['LLL:EXT:ssch_forgot_pill/Resources/Private/Language/locallang_db.xlf:tx_sschforgotpill_domain_model_forgotpill.forgot_more_than_one_pill', 2],
                 ],
                 'size' => 1,
                 'maxitems' => 1,
@@ -134,14 +134,14 @@ return [
         ],
         'when_did_you_forgot_to_take_the_pill' => [
             'exclude' => 1,
-            'label' => 'LLL:EXT:ssch_forgot_pill/Resources/Private/Language/locallang_db.xml:tx_sschforgotpill_domain_model_forgotpill.when_did_you_forgot_to_take_the_pill',
+            'label' => 'LLL:EXT:ssch_forgot_pill/Resources/Private/Language/locallang_db.xlf:tx_sschforgotpill_domain_model_forgotpill.when_did_you_forgot_to_take_the_pill',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
                 'items' => [
-                    ['LLL:EXT:ssch_forgot_pill/Resources/Private/Language/locallang_db.xml:tx_sschforgotpill_domain_model_forgotpill.please_choose', 0],
-                    ['LLL:EXT:ssch_forgot_pill/Resources/Private/Language/locallang_db.xml:tx_sschforgotpill_domain_model_forgotpill.when_did_you_forgot_the_pill.less_than_12_hours', 1],
-                    ['LLL:EXT:ssch_forgot_pill/Resources/Private/Language/locallang_db.xml:tx_sschforgotpill_domain_model_forgotpill.when_did_you_forgot_the_pill.more_than_12_hours', 2],
+                    ['LLL:EXT:ssch_forgot_pill/Resources/Private/Language/locallang_db.xlf:tx_sschforgotpill_domain_model_forgotpill.please_choose', 0],
+                    ['LLL:EXT:ssch_forgot_pill/Resources/Private/Language/locallang_db.xlf:tx_sschforgotpill_domain_model_forgotpill.when_did_you_forgot_the_pill.less_than_12_hours', 1],
+                    ['LLL:EXT:ssch_forgot_pill/Resources/Private/Language/locallang_db.xlf:tx_sschforgotpill_domain_model_forgotpill.when_did_you_forgot_the_pill.more_than_12_hours', 2],
                 ],
                 'size' => 1,
                 'maxitems' => 1,
@@ -150,15 +150,15 @@ return [
         ],
         'which_week' => [
             'exclude' => 1,
-            'label' => 'LLL:EXT:ssch_forgot_pill/Resources/Private/Language/locallang_db.xml:tx_sschforgotpill_domain_model_forgotpill.which_week',
+            'label' => 'LLL:EXT:ssch_forgot_pill/Resources/Private/Language/locallang_db.xlf:tx_sschforgotpill_domain_model_forgotpill.which_week',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
                 'items' => [
-                    ['LLL:EXT:ssch_forgot_pill/Resources/Private/Language/locallang_db.xml:tx_sschforgotpill_domain_model_forgotpill.please_choose', 0],
-                    ['LLL:EXT:ssch_forgot_pill/Resources/Private/Language/locallang_db.xml:tx_sschforgotpill_domain_model_forgotpill.which_week_01', 1],
-                    ['LLL:EXT:ssch_forgot_pill/Resources/Private/Language/locallang_db.xml:tx_sschforgotpill_domain_model_forgotpill.which_week_02', 2],
-                    ['LLL:EXT:ssch_forgot_pill/Resources/Private/Language/locallang_db.xml:tx_sschforgotpill_domain_model_forgotpill.which_week_03', 3],
+                    ['LLL:EXT:ssch_forgot_pill/Resources/Private/Language/locallang_db.xlf:tx_sschforgotpill_domain_model_forgotpill.please_choose', 0],
+                    ['LLL:EXT:ssch_forgot_pill/Resources/Private/Language/locallang_db.xlf:tx_sschforgotpill_domain_model_forgotpill.which_week_01', 1],
+                    ['LLL:EXT:ssch_forgot_pill/Resources/Private/Language/locallang_db.xlf:tx_sschforgotpill_domain_model_forgotpill.which_week_02', 2],
+                    ['LLL:EXT:ssch_forgot_pill/Resources/Private/Language/locallang_db.xlf:tx_sschforgotpill_domain_model_forgotpill.which_week_03', 3],
                 ],
                 'size' => 1,
                 'maxitems' => 1,
@@ -167,7 +167,7 @@ return [
         ],
         'did_you_have_sex' => [
             'exclude' => 1,
-            'label' => 'LLL:EXT:ssch_forgot_pill/Resources/Private/Language/locallang_db.xml:tx_sschforgotpill_domain_model_forgotpill.did_you_have_sex',
+            'label' => 'LLL:EXT:ssch_forgot_pill/Resources/Private/Language/locallang_db.xlf:tx_sschforgotpill_domain_model_forgotpill.did_you_have_sex',
             'config' => [
                 'type' => 'check',
                 'default' => 0,
@@ -175,7 +175,7 @@ return [
         ],
         'did_you_take_the_pill_correctly_in_previous_weeks' => [
             'exclude' => 1,
-            'label' => 'LLL:EXT:ssch_forgot_pill/Resources/Private/Language/locallang_db.xml:tx_sschforgotpill_domain_model_forgotpill.did_you_take_the_pill_correctly_in_previous_weeks',
+            'label' => 'LLL:EXT:ssch_forgot_pill/Resources/Private/Language/locallang_db.xlf:tx_sschforgotpill_domain_model_forgotpill.did_you_take_the_pill_correctly_in_previous_weeks',
             'config' => [
                 'type' => 'check',
                 'default' => 0,
