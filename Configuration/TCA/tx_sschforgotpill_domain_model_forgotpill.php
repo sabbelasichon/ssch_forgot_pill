@@ -24,7 +24,7 @@ return [
             'starttime' => 'starttime',
             'endtime' => 'endtime',
         ],
-        'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath('ssch_forgot_pill') . 'Resources/Public/Icons/tx_sschforgotpill_domain_model_forgotpill.gif',
+        'iconfile' => 'EXT:ssch_forgot_pill/Resources/Public/Icons/tx_sschforgotpill_domain_model_forgotpill.png',
     ],
     'interface' => [
         'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, how_many_times, when_did_you_forgot_to_take_the_pill, which_week, did_you_have_sex, did_you_take_the_pill_correctly_in_previous_weeks',
