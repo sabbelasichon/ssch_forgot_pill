@@ -1,0 +1,30 @@
+<f:layout name="Default"/>
+<f:section name="tabs">
+    <f:render partial="ForgotPill/Tabs" arguments="{active: 2}"/>
+</f:section>
+<f:section name="main">
+    <h2>
+        <f:translate key="tx_sschforgotpill_domain_model_forgotpill.when_did_you_forget_to_take_the_pill"/>
+    </h2>
+    <f:render partial="FormErrors"/>
+    <f:form method="post" action="step3" name="newForgotPill" object="{newForgotPill}">
+        <div class="form-check">
+            <label for="whenDidYouForgotToTakeThePill1" class="form-check-label">
+                <f:form.radio class="form-check-input" id="whenDidYouForgotToTakeThePill1" property="whenDidYouForgotToTakeThePill" value="1"/>
+                <f:translate key="tx_sschforgotpill_domain_model_forgotpill.when_did_you_forgot_the_pill.less_than_12_hours"/>
+            </label>
+        </div>
+        <div class="form-check">
+            <label for="whenDidYouForgotToTakeThePill2" class="form-check-label">
+                <f:form.radio class="form-check-input" id="whenDidYouForgotToTakeThePill2" property="whenDidYouForgotToTakeThePill" value="2"/>
+                <f:translate key="tx_sschforgotpill_domain_model_forgotpill.when_did_you_forgot_the_pill.more_than_12_hours"/>
+            </label>
+        </div>
+        <f:render partial="ForgotPill/GoButtonForm"/>
+    </f:form>
+</f:section>
+<f:section name="backbutton">
+    <f:form method="post" action="step1">
+        <f:render partial="ForgotPill/BackButtonForm"/>
+    </f:form>
+</f:section>

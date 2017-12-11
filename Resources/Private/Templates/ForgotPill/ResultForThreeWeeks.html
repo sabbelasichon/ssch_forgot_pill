@@ -1,0 +1,42 @@
+<f:layout name="Default"/>
+<f:section name="tabs">
+    <f:render partial="ForgotPill/Tabs" arguments="{active: 5}"/>
+</f:section>
+<f:section name="main">
+    <div class="alert alert-warning" role="alert">
+        <p>
+            <f:translate key="tx_sschforgotpill_domain_model_forgotpill.result.3weeks" htmlEscape="false"/>
+        </p>
+        <div>
+            <h2>
+                <f:translate key="tx_sschforgotpill_domain_model_forgotpill.result.next_steps"/>
+                :
+            </h2>
+        </div>
+        <p><span class="tx-ssch-forgot-pill-gray">Entweder...</span></p>
+        <ul>
+            <li>
+                <f:translate key="tx_sschforgotpill_domain_model_forgotpill.result.take_pill_afterwards"/>
+            </li>
+            <li>
+                <f:translate key="tx_sschforgotpill_domain_model_forgotpill.result.take_other_daily"/>
+            </li>
+            <li>
+                <f:translate key="tx_sschforgotpill_domain_model_forgotpill.result.no_pause"/>
+            </li>
+        </ul>
+        <p><span><f:translate key="tx_sschforgotpill_domain_model_forgotpill.result.or"/></span>
+        </p>
+        <ul>
+            <li>
+                <f:translate key="tx_sschforgotpill_domain_model_forgotpill.result.take_pill_not_afterwards"/>
+            </li>
+            <li>
+                <f:translate key="tx_sschforgotpill_domain_model_forgotpill.result.begin_with_next_package"/>
+            </li>
+        </ul>
+    </div>
+</f:section>
+<f:section name="backbutton">
+    <f:render partial="ForgotPill/BackButton"/>
+</f:section>

@@ -1,0 +1,32 @@
+<f:layout name="Default"/>
+<f:section name="tabs">
+    <f:render partial="ForgotPill/Tabs" arguments="{active: 4}"/>
+</f:section>
+<f:section name="main">
+    <h2>
+        <f:translate key="tx_sschforgotpill_domain_model_forgotpill.did_you_have_sex_part_01"/>
+        <br/>
+        <f:translate key="tx_sschforgotpill_domain_model_forgotpill.did_you_have_sex_part_02"/>
+    </h2>
+    <f:render partial="FormErrors"/>
+    <f:form method="post" action="result" name="newForgotPill" object="{newForgotPill}">
+        <div class="form-check">
+            <label for="didYouHaveSex1" class="form-check-label">
+                <f:form.radio class="form-check-input" id="didYouHaveSex1" property="didYouHaveSex" value="1"/>
+                <f:translate key="tx_sschforgotpill_domain_model_forgotpill.yes"/>
+            </label>
+        </div>
+        <div class="form-check">
+            <label for="didYouHaveSex0" class="form-check-label">
+                <f:form.radio class="form-check-input" id="didYouHaveSex0" property="didYouHaveSex" value="0"/>
+                <f:translate key="tx_sschforgotpill_domain_model_forgotpill.no"/>
+            </label>
+        </div>
+        <f:render partial="ForgotPill/GoButtonForm"/>
+    </f:form>
+</f:section>
+<f:section name="backbutton">
+    <f:form method="post" action="step3">
+        <f:render partial="ForgotPill/BackButtonForm"/>
+    </f:form>
+</f:section>

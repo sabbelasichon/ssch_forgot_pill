@@ -1,0 +1,36 @@
+<f:layout name="Default"/>
+<f:section name="tabs">
+    <f:render partial="ForgotPill/Tabs" arguments="{active: 3}"/>
+</f:section>
+<f:section name="main">
+    <h2>
+        <f:translate key="tx_sschforgotpill_domain_model_forgotpill.which_week"/>
+    </h2>
+    <f:render partial="FormErrors"/>
+    <f:form method="post" action="step4" name="newForgotPill" object="{newForgotPill}">
+        <div class="form-check">
+            <label for="whichWeek1">
+                <f:form.radio class="form-check-input" id="whichWeek1" property="whichWeek" value="1"/>
+                <f:translate key="tx_sschforgotpill_domain_model_forgotpill.which_week.week_1"/>
+            </label>
+        </div>
+        <div class="form-check">
+            <label for="whichWeek2">
+                <f:form.radio class="form-check-input" id="whichWeek2" property="whichWeek" value="2"/>
+                <f:translate key="tx_sschforgotpill_domain_model_forgotpill.which_week.week_2"/>
+            </label>
+        </div>
+        <div>
+            <label for="whichWeek3">
+                <f:form.radio class="form-check-input" id="whichWeek3" property="whichWeek" value="3"/>
+                <f:translate key="tx_sschforgotpill_domain_model_forgotpill.which_week.week_3"/>
+            </label>
+        </div>
+        <f:render partial="ForgotPill/GoButtonForm"/>
+    </f:form>
+</f:section>
+<f:section name="backbutton">
+    <f:form method="post" action="step2">
+        <f:render partial="ForgotPill/BackButtonForm"/>
+    </f:form>
+</f:section>

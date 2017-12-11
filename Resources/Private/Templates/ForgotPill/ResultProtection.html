@@ -1,0 +1,20 @@
+<f:layout name="Default"/>
+<f:section name="tabs">
+    <f:render partial="ForgotPill/Tabs" arguments="{active: 5}"/>
+</f:section>
+<f:section name="main">
+    <div class="alert alert-success" role="alert">
+        <h2>
+            <f:translate key="tx_sschforgotpill_domain_model_forgotpill.result.headline.protection"/>
+        </h2>
+        <p>
+            <f:translate key="tx_sschforgotpill_domain_model_forgotpill.result.text_01.protection"/>
+        </p>
+        <p>
+            <f:translate key="tx_sschforgotpill_domain_model_forgotpill.result.text_02.protection"/>
+        </p>
+    </div>
+</f:section>
+<f:section name="backbutton">
+    <f:render partial="ForgotPill/BackButton"/>
+</f:section>

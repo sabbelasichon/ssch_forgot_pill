@@ -1,0 +1,24 @@
+<f:layout name="Default"/>
+<f:section name="tabs">
+    <f:render partial="ForgotPill/Tabs" arguments="{active: 5}"/>
+</f:section>
+<f:section name="main">
+    <div class="alert alert-danger" role="alert">
+        <p>
+            <f:translate key="tx_sschforgotpill_domain_model_forgotpill.result.first_week.text_01"/>
+        </p>
+        <h2>
+            <f:translate key="tx_sschforgotpill_domain_model_forgotpill.result.no_protection"/>
+        </h2>
+        <p>
+            <em>
+                <f:translate key="tx_sschforgotpill_domain_model_forgotpill.result.possible_pregnancy.part_01"/>
+                <br/>
+                <f:translate key="tx_sschforgotpill_domain_model_forgotpill.result.possible_pregnancy.part_02"/>
+            </em>
+        </p>
+    </div>
+</f:section>
+<f:section name="backbutton">
+    <f:render partial="ForgotPill/BackButton"/>
+</f:section>

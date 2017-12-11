@@ -1,0 +1,10 @@
+<f:form.validationResults for="newForgotPill">
+    <ul>
+        <f:for each="{validationResults.errors}" as="error">
+            <li>
+               <span class="has-danger">{error.message}</span>
+            </li>
+        </f:for>
+    </ul>
+</f:form.validationResults>
+

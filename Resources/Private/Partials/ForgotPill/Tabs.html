@@ -1,0 +1,16 @@
+<ul class="nav nav-tabs">
+    <f:for each="{1:1, 2:2, 3:3, 4:4, 5:5}" as="step" key="index">
+        <f:if condition="{index} != {active}">
+            <f:then>
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="#">{step}</a>
+                </li>
+            </f:then>
+            <f:else>
+                <li class="nav-item active">
+                    <a href="#" class="nav-link active">{step}</a>
+                </li>
+            </f:else>
+        </f:if>
+    </f:for>
+</ul>

@@ -1,0 +1,28 @@
+<f:layout name="Default"/>
+<f:section name="tabs">
+    <f:render partial="ForgotPill/Tabs" arguments="{active: 1}"/>
+</f:section>
+<f:section name="main">
+    <h2>
+        <f:translate key="tx_sschforgotpill_domain_model_forgotpill.how_many_times"/>
+    </h2>
+    <f:render partial="FormErrors"/>
+    <f:form method="post" action="step2" name="newForgotPill" object="{newForgotPill}">
+        <div class="form-check">
+            <label for="howManyTimes1">
+                <f:form.radio class="form-check-input" id="howManyTimes1" property="howManyTimes" value="1"/>
+                <f:translate key="tx_sschforgotpill_domain_model_forgotpill.forgot_one_pill"/>
+            </label>
+        </div>
+        <div class="form-check">
+            <label for="howManyTimes2">
+                <f:form.radio class="form-check-input" id="howManyTimes2" property="howManyTimes" value="2"/>
+                <f:translate key="tx_sschforgotpill_domain_model_forgotpill.forgot_more_than_one_pill"/>
+            </label>
+        </div>
+        <f:render partial="ForgotPill/GoButtonForm"/>
+    </f:form>
+</f:section>
+<f:section name="backbutton">
+    <f:render partial="ForgotPill/BackButton"/>
+</f:section>

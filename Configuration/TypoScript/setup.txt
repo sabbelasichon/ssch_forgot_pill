@@ -1,0 +1,32 @@
+plugin.tx_sschforgotpill {
+    view {
+        templateRootPaths {
+            0 = EXT:ssch_forgot_pill/Resources/Private/Templates/
+            10 = {$plugin.tx_sschforgotpill.view.templateRootPath}
+        }
+
+        partialRootPaths {
+            0 = EXT:ssch_forgot_pill/Resources/Private/Partials/
+            10 = {$plugin.tx_sschforgotpill.view.partialRootPath}
+        }
+
+        layoutRootPaths {
+            0 = EXT:ssch_forgot_pill/Resources/Private/Layouts/
+            10 = {$plugin.tx_sschforgotpill.view.layoutRootPath}
+        }
+    }
+
+    persistence {
+        storagePid = {$plugin.tx_sschforgotpill.persistence.storagePid}
+    }
+
+    features {
+        rewrittenPropertyMapper = 1
+    }
+
+    settings {
+        minipille {
+            pageUid = {$plugin.tx_sschforgotpill.settings.minipille.pageUid}
+        }
+    }
+}

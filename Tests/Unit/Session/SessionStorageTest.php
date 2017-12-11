@@ -1,0 +1,88 @@
+<?php
+
+namespace Ssch\SschForgotPill\Tests\Unit\Session;
+
+/*
+ * This file is part of the TYPO3 CMS project.
+ *
+ * It is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU General Public License, either version 2
+ * of the License, or any later version.
+ *
+ * For the full copyright and license information, please read the
+ * LICENSE.txt file that was distributed with this source code.
+ *
+ * The TYPO3 project - inspiring people to share!
+ */
+
+use PHPUnit_Framework_MockObject_MockObject;
+use Ssch\SschForgotPill\Session\BackendSessionStorage;
+use Ssch\SschForgotPill\Session\FrontendSessionStorage;
+use Ssch\SschForgotPill\Session\NullSessionStorage;
+use Ssch\SschForgotPill\Session\SessionStorage;
+use TYPO3\CMS\Core\Tests\UnitTestCase;
+use TYPO3\CMS\Extbase\Object\ObjectManagerInterface;
+use TYPO3\CMS\Extbase\Service\EnvironmentService;
+
+class SessionStorageTest extends UnitTestCase
+{
+
+    /**
+     * @var SessionStorage
+     */
+    protected $subject;
+
+    /**
+     * @var EnvironmentService|PHPUnit_Framework_MockObject_MockObject
+     */
+    protected $environmentService;
+
+    /**
+     * @var ObjectManagerInterface|PHPUnit_Framework_MockObject_MockObject
+     */
+    protected $objectManager;
+
+    /**
+     * @return void
+     */
+    protected function setUp()
+    {
+        $this->environmentService = $this->getMockBuilder(EnvironmentService::class)->getMock();
+        $this->objectManager = $this->getMockBuilder(ObjectManagerInterface::class)->getMock();
+    }
+
+    /**
+     * @test
+     */
+    public function createFrontendSessionStorage()
+    {
+        $this->environmentService->expects($this->once())->method('isEnvironmentInFrontendMode')->willReturn(true);
+        $this->objectManager->expects($this->once())->method('get')->with(FrontendSessionStorage::class);
+
+        $object = new SessionStorage($this->objectManager, $this->environmentService);
+    }
+
+    /**
+     * @test
+     */
+    public function createBackendSessionStorage()
+    {
+        $this->environmentService->expects($this->once())->method('isEnvironmentInFrontendMode')->willReturn(false);
+        $this->environmentService->expects($this->once())->method('isEnvironmentInBackendMode')->willReturn(true);
+        $this->objectManager->expects($this->once())->method('get')->with(BackendSessionStorage::class);
+
+        $object = new SessionStorage($this->objectManager, $this->environmentService);
+    }
+
+    /**
+     * @test
+     */
+    public function createNullSessionStorage()
+    {
+        $this->environmentService->expects($this->once())->method('isEnvironmentInFrontendMode')->willReturn(false);
+        $this->environmentService->expects($this->once())->method('isEnvironmentInBackendMode')->willReturn(false);
+        $this->objectManager->expects($this->once())->method('get')->with(NullSessionStorage::class);
+
+        $object = new SessionStorage($this->objectManager, $this->environmentService);
+    }
+}

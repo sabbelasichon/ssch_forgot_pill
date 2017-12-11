@@ -1,0 +1,18 @@
+<f:layout name="Default"/>
+<f:section name="tabs">
+    <f:render partial="ForgotPill/Tabs" arguments="{active: 0}"/>
+</f:section>
+<f:section name="main">
+    <div class="jumbotron">
+        <h2>Pille vergessen, was tun?</h2>
+        <p class="lead">
+            Das folgende Schema gilt nur für Kombinations-, <strong>nicht</strong> für Minipillen!
+        </p>
+        <p class="lead">
+            <f:link.action class="btn btn-primary" action="step1" controller="ForgotPill">
+                zu Schritt 1
+            </f:link.action>
+        </p>
+    </div>
+</f:section>
+<f:section name="backbutton"/>
