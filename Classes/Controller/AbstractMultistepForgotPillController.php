@@ -189,6 +189,7 @@ abstract class AbstractMultistepForgotPillController extends ActionController
     protected function redirectToFirstActionMethod()
     {
         $this->clearSessionData();
-        $this->redirect('intro');
+        // Strip the word action from the name
+        $this->redirect(substr($this->finalActionMethodName, 0, -6));
     }
 }
