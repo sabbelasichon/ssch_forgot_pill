@@ -153,20 +153,7 @@ class ForgotPillController extends AbstractMultistepForgotPillController
         }
 
         try {
-            $partialName = '';
-            if ( ! $newForgotPill->getIsProtectedByTimes()) {
-                $partialName = 'ResultNoProtection';
-            } elseif ($newForgotPill->getIsProtected()) {
-                $partialName = 'ResultProtection';
-            } elseif ($newForgotPill->getWhichWeek() === WeekEnumeration::FIRST_WEEK) {
-                $partialName = $newForgotPill->getDidYouHaveSex() ? 'ResultNoProtectionForOneWeek' : 'ResultForOneWeekWithoutSex';
-            } elseif ($newForgotPill->getWhichWeek() === WeekEnumeration::SECOND_WEEK) {
-                $partialName = $newForgotPill->getDidYouTakeThePillCorrectlyInPreviousWeeks() ? 'ResultForTwoWeeks' : 'ResultNoProtection';
-            } elseif ($newForgotPill->getWhichWeek() === WeekEnumeration::THIRD_WEEK) {
-                $partialName = $newForgotPill->getDidYouTakeThePillCorrectlyInPreviousWeeks() ? 'ResultForThreeWeeks' : 'ResultNoProtection';
-            }
-
-            $this->view->assignMultiple(['newForgotPill' => $newForgotPill, 'partialName' => $partialName]);
+            $this->view->assignMultiple(['newForgotPill' => $newForgotPill, 'partialName' => $newForgotPill->getResultPartialName()]);
             $this->postProcessingAction($newForgotPill);
         } catch (\Exception $e) {
             $this->redirectToFirstActionMethod();

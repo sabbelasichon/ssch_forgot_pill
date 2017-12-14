@@ -124,6 +124,24 @@ class ForgotPill extends AbstractEntity
     }
 
     /**
+     * @return string
+     */
+    public function getResultPartialName()
+    {
+        if ( ! $this->getIsProtectedByTimes()) {
+            return 'ResultNoProtection';
+        } elseif ($this->getIsProtected()) {
+            return 'ResultProtection';
+        } elseif ($this->getWhichWeek() === WeekEnumeration::FIRST_WEEK) {
+            return $this->getDidYouHaveSex() ? 'ResultNoProtectionForOneWeek' : 'ResultForOneWeekWithoutSex';
+        } elseif ($this->getWhichWeek() === WeekEnumeration::SECOND_WEEK) {
+            return $this->getDidYouTakeThePillCorrectlyInPreviousWeeks() ? 'ResultForTwoWeeks' : 'ResultNoProtection';
+        } elseif ($this->getWhichWeek() === WeekEnumeration::THIRD_WEEK) {
+            return $this->getDidYouTakeThePillCorrectlyInPreviousWeeks() ? 'ResultForThreeWeeks' : 'ResultNoProtection';
+        }
+    }
+
+    /**
      * Sets the whichWeek.
      *
      * @param int $whichWeek
