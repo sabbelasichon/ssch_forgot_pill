@@ -135,22 +135,7 @@ class ForgotPillController extends AbstractMultistepForgotPillController
             $this->redirectToFirstActionMethod();
         }
 
-        $partialName = '';
-        switch ($newForgotPill->getWhichWeek()) {
-            case WeekEnumeration::FIRST_WEEK:
-                $partialName = 'Step4ForOneWeek';
-                break;
-            case WeekEnumeration::SECOND_WEEK:
-                $partialName = 'Step4ForTwoWeeks';
-                break;
-            case WeekEnumeration::THIRD_WEEK:
-                $partialName = 'Step4ForThreeWeeks';
-                break;
-            default:
-                $this->redirectToFirstActionMethod();
-                break;
-        }
-        $this->view->assignMultiple(['newForgotPill', $newForgotPill, 'partialName' => $partialName]);
+        $this->view->assignMultiple(['newForgotPill', $newForgotPill, 'partialName' => $newForgotPill->getStep4PartialName()]);
 
     }
 

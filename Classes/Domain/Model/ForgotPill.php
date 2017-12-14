@@ -16,6 +16,7 @@ namespace Ssch\SschForgotPill\Domain\Model;
  */
 
 use Ssch\SschForgotPill\Enumeration\HowManyTimesEnumeration;
+use Ssch\SschForgotPill\Enumeration\WeekEnumeration;
 use Ssch\SschForgotPill\Enumeration\WhenDidYouForgetToTakePillEnumeration;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 
@@ -105,6 +106,21 @@ class ForgotPill extends AbstractEntity
     public function getWhichWeek()
     {
         return (int)$this->whichWeek;
+    }
+
+    /**
+     * @return string
+     */
+    public function getStep4PartialName()
+    {
+        switch ($this->getWhichWeek()) {
+            case WeekEnumeration::FIRST_WEEK:
+                return 'Step4ForOneWeek';
+            case WeekEnumeration::SECOND_WEEK:
+                return 'Step4ForTwoWeeks';
+            case WeekEnumeration::THIRD_WEEK:
+                return 'Step4ForThreeWeeks';
+        }
     }
 
     /**
