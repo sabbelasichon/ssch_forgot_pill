@@ -82,7 +82,7 @@ abstract class AbstractMultistepForgotPillController extends ActionController
         try {
 
             // First of all load the session Data
-            $this->loadSessionData();
+            $this->formData = $this->loadSessionData();
 
             // Get all the request arguments
             $requestArguments = $this->request->getArguments();
@@ -129,20 +129,17 @@ abstract class AbstractMultistepForgotPillController extends ActionController
     }
 
     /**
-     * Load session data.
+     * @return array|mixed
      */
     protected function loadSessionData()
     {
         $this->sessionData = $this->sessionStorage->read($this->sessionDataStorageKey);
-        if (null !== $this->sessionData) {
-            if (!empty($this->sessionData[$this->formDataKey])) {
-                $this->formData = $this->sessionData[$this->formDataKey];
-            } else {
-                $this->formData = [];
-            }
-        } else {
-            $this->formData = [];
+
+        if(null === $this->sessionData || empty($this->sessionData[$this->formDataKey])) {
+            return [];
         }
+
+        return $this->sessionData[$this->formDataKey];
     }
 
     /**
