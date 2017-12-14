@@ -16,6 +16,7 @@ namespace Ssch\SschForgotPill\Domain\Model;
  */
 
 use Ssch\SschForgotPill\Enumeration\HowManyTimesEnumeration;
+use Ssch\SschForgotPill\Enumeration\PartialNameEnumeration;
 use Ssch\SschForgotPill\Enumeration\WeekEnumeration;
 use Ssch\SschForgotPill\Enumeration\WhenDidYouForgetToTakePillEnumeration;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
@@ -115,11 +116,11 @@ class ForgotPill extends AbstractEntity
     {
         switch ($this->getWhichWeek()) {
             case WeekEnumeration::FIRST_WEEK:
-                return 'Step4ForOneWeek';
+                return PartialNameEnumeration::STEP4_ONEWEEK;
             case WeekEnumeration::SECOND_WEEK:
-                return 'Step4ForTwoWeeks';
+                return PartialNameEnumeration::STEP4_TWOWEEKS;
             case WeekEnumeration::THIRD_WEEK:
-                return 'Step4ForThreeWeeks';
+                return PartialNameEnumeration::STEP4_THREEWEEKS;
         }
     }
 
@@ -129,15 +130,15 @@ class ForgotPill extends AbstractEntity
     public function getResultPartialName()
     {
         if ( ! $this->getIsProtectedByTimes()) {
-            return 'ResultNoProtection';
+            return PartialNameEnumeration::RESULT_NO_PROTECTION;
         } elseif ($this->getIsProtected()) {
-            return 'ResultProtection';
+            return PartialNameEnumeration::RESULT_PROTECTION;
         } elseif ($this->getWhichWeek() === WeekEnumeration::FIRST_WEEK) {
-            return $this->getDidYouHaveSex() ? 'ResultNoProtectionForOneWeek' : 'ResultForOneWeekWithoutSex';
+            return $this->getDidYouHaveSex() ? PartialNameEnumeration::RESULT_NO_PROTECTION_FOR_ONE_WEEK : PartialNameEnumeration::RESULT_NO_ONE_WEEK_WITHOUT_SEX;
         } elseif ($this->getWhichWeek() === WeekEnumeration::SECOND_WEEK) {
-            return $this->getDidYouTakeThePillCorrectlyInPreviousWeeks() ? 'ResultForTwoWeeks' : 'ResultNoProtection';
+            return $this->getDidYouTakeThePillCorrectlyInPreviousWeeks() ? PartialNameEnumeration::RESULT_TWO_WEEKS : PartialNameEnumeration::RESULT_NO_PROTECTION;
         } elseif ($this->getWhichWeek() === WeekEnumeration::THIRD_WEEK) {
-            return $this->getDidYouTakeThePillCorrectlyInPreviousWeeks() ? 'ResultForThreeWeeks' : 'ResultNoProtection';
+            return $this->getDidYouTakeThePillCorrectlyInPreviousWeeks() ? PartialNameEnumeration::RESULT_THREE_WEEKS : PartialNameEnumeration::RESULT_NO_PROTECTION;
         }
     }
 
