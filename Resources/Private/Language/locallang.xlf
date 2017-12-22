@@ -157,8 +157,7 @@ Ein zusätzliches Verhütungsmittel ist nicht notwendig.
                 <source>Ergebnis: Locker bleiben, alles im grünen Bereich!</source>
             </trans-unit>
             <trans-unit id="tx_sschforgotpill_domain_model_forgotpill.result.use_other_contraceptivas">
-                <source>Benutzen Sie während der nächsten sieben Tage zusätzliche Verhütungsmittel, zum Beispiel ein
-                    Kondom.
+                <source>Benutzen Sie während der nächsten sieben Tage zusätzliche Verhütungsmittel, zum Beispiel ein Kondom.
                 </source>
             </trans-unit>
             <trans-unit id="tx_sschforgotpill_domain_model_forgotpill.when_did_you_forget_to_take_the_pill">
@@ -168,7 +167,10 @@ Ein zusätzliches Verhütungsmittel ist nicht notwendig.
                 <source>Vor weniger als 12 Stunden.</source>
             </trans-unit>
             <trans-unit id="tx_sschforgotpill_domain_model_forgotpill.when_did_you_forgot_the_pill.more_than_12_hours">
-                <source>Vor mehr als 12 Stunden.</source>
+                <source>Vor mehr als 12 Stunden.*</source>
+            </trans-unit>
+            <trans-unit id="tx_sschforgotpill_domain_model_forgotpill.when_did_you_forgot_the_pill.more_than_12_hours_notice">
+                <source>*Bei einigen Pillenpräparaten ist der Empfängnisschutz nach einer vergessenen Pille bis zu 24 Stunden gewährleistet. Bitte schauen Sie in der Gebrauchsinformation Ihrer Pille nach.</source>
             </trans-unit>
             <trans-unit id="tx_sschforgotpill_domain_model_forgotpill.which_week">
                 <source>In welcher Einnahmewoche haben Sie die Pille vergessen?</source>
