@@ -2,6 +2,10 @@
 
 namespace Ssch\SschForgotPill\Controller;
 
+use TYPO3\CMS\Extbase\Mvc\Exception\StopActionException;
+use TYPO3\CMS\Extbase\Mvc\Exception\UnsupportedRequestTypeException;
+use Exception;
+use TYPO3\CMS\Extbase\Persistence\Exception\IllegalObjectTypeException;
 /*
  * This file is part of the TYPO3 CMS project.
  *
@@ -24,10 +28,8 @@ class ForgotPillController extends AbstractMultistepForgotPillController
 {
     /**
      * forgotPillRepository.
-     *
-     * @var ForgotPillRepository
      */
-    protected $forgotPillRepository;
+    protected ?ForgotPillRepository $forgotPillRepository = null;
 
 
     /**
@@ -40,7 +42,7 @@ class ForgotPillController extends AbstractMultistepForgotPillController
 
     /**
      * Index action.
-     * @throws \TYPO3\CMS\Extbase\Mvc\Exception\StopActionException
+     * @throws StopActionException
      */
     public function indexAction()
     {
@@ -85,8 +87,8 @@ class ForgotPillController extends AbstractMultistepForgotPillController
      * @param ForgotPill $newForgotPill
      * @validate $newForgotPill \Ssch\SschForgotPill\Domain\Validator\Step1ControllerValidator
      *
-     * @throws \TYPO3\CMS\Extbase\Mvc\Exception\UnsupportedRequestTypeException
-     * @throws \TYPO3\CMS\Extbase\Mvc\Exception\StopActionException
+     * @throws UnsupportedRequestTypeException
+     * @throws StopActionException
      */
     public function step2Action(ForgotPill $newForgotPill = null)
     {
@@ -106,8 +108,8 @@ class ForgotPillController extends AbstractMultistepForgotPillController
      * @param ForgotPill $newForgotPill
      * @validate $newForgotPill \Ssch\SschForgotPill\Domain\Validator\Step2ControllerValidator
      *
-     * @throws \TYPO3\CMS\Extbase\Mvc\Exception\UnsupportedRequestTypeException
-     * @throws \TYPO3\CMS\Extbase\Mvc\Exception\StopActionException
+     * @throws UnsupportedRequestTypeException
+     * @throws StopActionException
      */
     public function step3Action(ForgotPill $newForgotPill = null)
     {
@@ -126,8 +128,8 @@ class ForgotPillController extends AbstractMultistepForgotPillController
      * @param ForgotPill $newForgotPill
      * @validate $newForgotPill \Ssch\SschForgotPill\Domain\Validator\Step3ControllerValidator
      *
-     * @throws \TYPO3\CMS\Extbase\Mvc\Exception\UnsupportedRequestTypeException
-     * @throws \TYPO3\CMS\Extbase\Mvc\Exception\StopActionException
+     * @throws UnsupportedRequestTypeException
+     * @throws StopActionException
      */
     public function step4Action(ForgotPill $newForgotPill = null)
     {
@@ -143,8 +145,8 @@ class ForgotPillController extends AbstractMultistepForgotPillController
      * @param ForgotPill $newForgotPill
      * @validate $newForgotPill \Ssch\SschForgotPill\Domain\Validator\Step4ControllerValidator
      *
-     * @throws \TYPO3\CMS\Extbase\Mvc\Exception\StopActionException
-     * @throws \TYPO3\CMS\Extbase\Mvc\Exception\UnsupportedRequestTypeException
+     * @throws StopActionException
+     * @throws UnsupportedRequestTypeException
      */
     public function resultAction(ForgotPill $newForgotPill = null)
     {
@@ -155,7 +157,7 @@ class ForgotPillController extends AbstractMultistepForgotPillController
         try {
             $this->view->assignMultiple(['newForgotPill' => $newForgotPill, 'partialName' => $newForgotPill->getResultPartialName()]);
             $this->postProcessingAction($newForgotPill);
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             $this->redirectToFirstActionMethod();
         }
     }
@@ -165,7 +167,7 @@ class ForgotPillController extends AbstractMultistepForgotPillController
      *
      * @param ForgotPill $newForgotPill
      *
-     * @throws \TYPO3\CMS\Extbase\Persistence\Exception\IllegalObjectTypeException
+     * @throws IllegalObjectTypeException
      */
     protected function postProcessingAction(ForgotPill $newForgotPill = null)
     {

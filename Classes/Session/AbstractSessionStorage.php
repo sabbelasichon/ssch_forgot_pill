@@ -17,10 +17,7 @@ namespace Ssch\SschForgotPill\Session;
 abstract class AbstractSessionStorage implements SessionStorageInterface
 {
 
-    /**
-     * @var string
-     */
-    protected $sessionNamespace;
+    protected string $sessionNamespace;
 
     /**
      * AbstractSessionStorage constructor.

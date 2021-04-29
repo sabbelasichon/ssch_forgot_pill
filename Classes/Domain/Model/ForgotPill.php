@@ -26,38 +26,28 @@ class ForgotPill extends AbstractEntity
 
     /**
      * Wie oft haben Sie die Pille vergessen?
-     *
-     * @var int
      */
-    protected $howManyTimes;
+    protected ?int $howManyTimes = null;
 
     /**
      * Wann haben Sie die Pille vergessen?
-     *
-     * @var int
      */
-    protected $whenDidYouForgotToTakeThePill;
+    protected ?int $whenDidYouForgotToTakeThePill = null;
 
     /**
      * In welcher Woche haben Sie die Pille vergessen?
-     *
-     * @var int
      */
-    protected $whichWeek;
+    protected ?int $whichWeek = null;
 
     /**
      * Hatten Sie in der Woche Geschlechtsverkehr?
-     *
-     * @var bool
      */
-    protected $didYouHaveSex;
+    protected ?bool $didYouHaveSex = null;
 
     /**
      * Haben Sie die Pille in den vorherigen Wochen korrekt eingenommen?
-     *
-     * @var bool
      */
-    protected $didYouTakeThePillCorrectlyInPreviousWeeks;
+    protected ?bool $didYouTakeThePillCorrectlyInPreviousWeeks = null;
 
     /**
      * Returns the howManyTimes.

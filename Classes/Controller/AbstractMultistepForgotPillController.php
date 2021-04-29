@@ -2,6 +2,9 @@
 
 namespace Ssch\SschForgotPill\Controller;
 
+use Exception;
+use TYPO3\CMS\Extbase\Mvc\Exception\UnsupportedRequestTypeException;
+use TYPO3\CMS\Extbase\Mvc\Exception\StopActionException;
 /*
  * This file is part of the TYPO3 CMS project.
  *
@@ -22,49 +25,27 @@ use TYPO3\CMS\Extbase\Property\TypeConverter\PersistentObjectConverter;
 
 abstract class AbstractMultistepForgotPillController extends ActionController
 {
-    /**
-     * @var SessionStorageInterface
-     */
-    protected $sessionStorage;
+    protected ?SessionStorageInterface $sessionStorage = null;
 
-    /**
-     * @var array
-     */
-    protected $sessionData = [];
+    protected array $sessionData = [];
 
-    /**
-     * @var array
-     */
-    protected $formData = [];
+    protected array $formData = [];
 
-    /**
-     * @var string
-     */
-    protected $sessionDataStorageKey = 'forgotPillSession';
+    protected string $sessionDataStorageKey = 'forgotPillSession';
 
-    /**
-     * @var string
-     */
-    protected $formDataKey = 'newForgotPill';
+    protected string $formDataKey = 'newForgotPill';
 
     /**
      * The action methode name of the first action.
-     *
-     * @var string
      */
-    protected $firstActionMethodName = 'introAction';
+    protected string $firstActionMethodName = 'introAction';
 
     /**
      * The action methode name of the last action.
-     *
-     * @var string
      */
-    protected $finalActionMethodName = 'resultAction';
+    protected string $finalActionMethodName = 'resultAction';
 
-    /**
-     * @var bool
-     */
-    protected $goBack = false;
+    protected bool $goBack = false;
 
     /**
      * @param SessionStorageInterface $sessionStorage
@@ -103,7 +84,7 @@ abstract class AbstractMultistepForgotPillController extends ActionController
                 $propertyMappingConfiguration->setTypeConverterOption(PersistentObjectConverter::class, PersistentObjectConverter::CONFIGURATION_CREATION_ALLOWED, true);
             }
 
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             echo $e->getMessage();
         }
     }
@@ -183,8 +164,8 @@ abstract class AbstractMultistepForgotPillController extends ActionController
 
     /**
      * Redirect to the first action.
-     * @throws \TYPO3\CMS\Extbase\Mvc\Exception\UnsupportedRequestTypeException
-     * @throws \TYPO3\CMS\Extbase\Mvc\Exception\StopActionException
+     * @throws UnsupportedRequestTypeException
+     * @throws StopActionException
      */
     protected function redirectToFirstActionMethod()
     {

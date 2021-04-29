@@ -23,10 +23,7 @@ use Ssch\SschForgotPill\Domain\Validator\Step1ControllerValidator;
 class Step1ControllerValidatorTest extends UnitTestCase
 {
 
-    /**
-     * @var Step1ControllerValidator
-     */
-    protected $subject;
+    protected Step1ControllerValidator $subject;
 
 
     protected function setUp()

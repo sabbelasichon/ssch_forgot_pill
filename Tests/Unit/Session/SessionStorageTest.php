@@ -27,10 +27,7 @@ use TYPO3\CMS\Extbase\Service\EnvironmentService;
 class SessionStorageTest extends UnitTestCase
 {
 
-    /**
-     * @var SessionStorage
-     */
-    protected $subject;
+    protected SessionStorage $subject;
 
     /**
      * @var EnvironmentService|PHPUnit_Framework_MockObject_MockObject

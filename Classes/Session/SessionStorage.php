@@ -29,16 +29,9 @@ class SessionStorage implements SessionStorageInterface
      */
     protected $sessionStorage;
 
-    /**
-     *
-     * @var ObjectManagerInterface
-     */
-    protected $objectManager;
+    protected ObjectManagerInterface $objectManager;
 
-    /**
-     * @var EnvironmentService
-     */
-    protected $environmentService;
+    protected EnvironmentService $environmentService;
 
     /**
      * SessionStorage constructor.
